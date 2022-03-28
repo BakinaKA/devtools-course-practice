@@ -8,8 +8,8 @@ TEST(Bakina_Kseniia_ComplexNumberTest, check_initialization_constructor) {
     double cn1Real = 3.56, cn1Im = 7.9;
     ComplexNumber cn1(cn1Real, cn1Im);
 
-    EXPECT_EQ(cn1Real, cn1.getRe());
-    EXPECT_EQ(cn1Im, cn1.getIm());
+    EXPECT_DOUBLE_EQ(cn1Real, cn1.getRe());
+    EXPECT_DOUBLE_EQ(cn1Im, cn1.getIm());
 }
 
 TEST(Bakina_Kseniia_ComplexNumberTest, check_copy_constructor) {
@@ -27,8 +27,8 @@ TEST(Bakina_Kseniia_ComplexNumberTest, check_setters) {
     cn1.setRe(cn1Real);
     cn1.setIm(cn1Im);
 
-    EXPECT_EQ(cn1Real, cn1.getRe());
-    EXPECT_EQ(cn1Im, cn1.getIm());
+    EXPECT_DOUBLE_EQ(cn1Real, cn1.getRe());
+    EXPECT_DOUBLE_EQ(cn1Im, cn1.getIm());
 }
 
 TEST(Bakina_Kseniia_ComplexNumberTest, check_equality_operation) {
@@ -58,8 +58,8 @@ TEST(Bakina_Kseniia_ComplexNumberTest, check_addition) {
 
     ComplexNumber sum = cn1 + cn2;
 
-    EXPECT_EQ(cn1Real + cn2Real, sum.getRe());
-    EXPECT_EQ(cn1Im + cn2Im, sum.getIm());
+    EXPECT_DOUBLE_EQ(cn1Real + cn2Real, sum.getRe());
+    EXPECT_DOUBLE_EQ(cn1Im + cn2Im, sum.getIm());
 }
 
 TEST(Bakina_Kseniia_ComplexNumberTest, check_subtraction) {
@@ -71,8 +71,8 @@ TEST(Bakina_Kseniia_ComplexNumberTest, check_subtraction) {
 
     ComplexNumber dif = cn1 - cn2;
 
-    EXPECT_EQ(cn1Real - cn2Real, dif.getRe());
-    EXPECT_EQ(cn1Im - cn2Im, dif.getIm());
+    EXPECT_DOUBLE_EQ(cn1Real - cn2Real, dif.getRe());
+    EXPECT_DOUBLE_EQ(cn1Im - cn2Im, dif.getIm());
 }
 
 TEST(Bakina_Kseniia_ComplexNumberTest, check_multiplication) {
@@ -84,8 +84,8 @@ TEST(Bakina_Kseniia_ComplexNumberTest, check_multiplication) {
 
     ComplexNumber mul = cn1 * cn2;
 
-    EXPECT_EQ(cn1Real * cn2Real - cn1Im * cn2Im, mul.getRe());
-    EXPECT_EQ(cn1Real * cn2Im + cn1Im * cn2Real, mul.getIm());
+    EXPECT_DOUBLE_EQ(cn1Real * cn2Real - cn1Im * cn2Im, mul.getRe());
+    EXPECT_DOUBLE_EQ(cn1Real * cn2Im + cn1Im * cn2Real, mul.getIm());
 }
 
 TEST(Bakina_Kseniia_ComplexNumberTest, check_division) {
@@ -100,6 +100,6 @@ TEST(Bakina_Kseniia_ComplexNumberTest, check_division) {
     double numerator1 = cn1Real * cn2Real + cn1Im * cn2Im;
     double numerator2 = cn1Im * cn2Real - cn1Real * cn2Im;
     double denominator = 1.0 / (cn2Real * cn2Real + cn2Im * cn2Im);
-    EXPECT_EQ(numerator1 * denominator, div.getRe());
-    EXPECT_EQ(numerator2 * denominator, div.getIm());
+    EXPECT_DOUBLE_EQ(numerator1 * denominator, div.getRe());
+    EXPECT_DOUBLE_EQ(numerator2 * denominator, div.getIm());
 }
