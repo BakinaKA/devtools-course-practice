@@ -2,6 +2,8 @@
 
 #include "include/backina_kseniia_betcher.h"
 
+#include <vector>
+
 std::vector<int> get_random_vector(int n) {
     std::srand(std::time(0));
     std::vector<int> vec;
@@ -46,7 +48,7 @@ std::vector<int> EvenOddBetcher_merge(const std::vector<int>& vec1,
     std::vector<int> even_vec;
     partial_merger(0, vec1, vec2, &even_vec, comparator);
     partial_merger(1, vec1, vec2, &odd_vec, comparator);
-    
+
     std::vector<int> result;
     if (!even_vec.empty()) {
         result.push_back(even_vec[0]);
