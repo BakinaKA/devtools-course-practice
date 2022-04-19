@@ -14,7 +14,7 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest, check_default_comparator) {
 
 TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
     check_func_get_random_vector) {
-    int n = 10;
+    unsigned int n = 10;
     std::vector<int> vector = EvenOddBetcher::get_random_vector(n);
     EXPECT_EQ(vector.size(), n);
     EXPECT_FALSE(vector.empty());
