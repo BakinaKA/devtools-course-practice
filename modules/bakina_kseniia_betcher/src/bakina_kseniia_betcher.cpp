@@ -1,9 +1,9 @@
 // Copyright 2022 Bakina Kseniia
 
-#include "include/backina_kseniia_betcher.h"
-
-#include <vector>
 #include <ctime>
+#include <vector>
+
+#include "include/backina_kseniia_betcher.h"
 
 std::vector<int> get_random_vector(int n) {
     std::srand(std::time(0));
