@@ -24,8 +24,8 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest, check_func_residue_handling) {
 	std::vector<int> result1;
     std::vector<int> result2;
 
-	residue_handling(0, vector, result1);
-	residue_handling(1, vector, result2);
+	residue_handling(0, vector, &result1);
+	residue_handling(1, vector, &result2);
 
 	EXPECT_EQ(result1, check_vector1);
 	EXPECT_EQ(result2, check_vector2);
@@ -39,8 +39,8 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest, check_func_partial_merger_with
 	std::vector<int> result1;
 	std::vector<int> result2;
 
-	partial_merger(0, vector1, vector2, result1);
-	partial_merger(1, vector1, vector2, result2);
+	partial_merger(0, vector1, vector2, &result1);
+	partial_merger(1, vector1, vector2, &result2);
 
 	EXPECT_EQ(result1, check_vector1);
 	EXPECT_EQ(result2, check_vector2);
@@ -55,8 +55,8 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest, check_func_partial_merger_with
 	std::vector<int> result2;
 
 	auto custom_comparator_greater = [](int a, int b) { return a > b; };
-	partial_merger(0, vector1, vector2, result1, custom_comparator_greater);
-	partial_merger(1, vector1, vector2, result2, custom_comparator_greater);
+	partial_merger(0, vector1, vector2, &result1, custom_comparator_greater);
+	partial_merger(1, vector1, vector2, &result2, custom_comparator_greater);
 
 	EXPECT_EQ(result1, check_vector1);
 	EXPECT_EQ(result2, check_vector2);
