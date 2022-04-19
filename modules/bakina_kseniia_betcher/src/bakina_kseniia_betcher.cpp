@@ -43,8 +43,9 @@ void EvenOddBetcher::partial_merger(int iter_init, const std::vector<int>& vec1,
     residue_handling(iter2, vec2, res);
 }
 
-std::vector<int> EvenOddBetcher::EvenOddBetcher_merge(const std::vector<int>& vec1,
-    const std::vector<int>& vec2, bool comparator(int, int)) {
+std::vector<int> EvenOddBetcher::EvenOddBetcher_merge(
+    const std::vector<int>& vec1, const std::vector<int>& vec2,
+    bool comparator(int, int)) {
     std::vector<int> odd_vec;
     std::vector<int> even_vec;
     partial_merger(0, vec1, vec2, &even_vec, comparator);

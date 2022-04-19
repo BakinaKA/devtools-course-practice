@@ -8,7 +8,7 @@
 auto default_comparator = [](int a, int b) { return a < b; };
 
 class EvenOddBetcher {
-public:
+ public:
     static std::vector<int> get_random_vector(int n);
     static void residue_handling(int iter, const std::vector<int>& vec,
          std::vector<int>* res);
