@@ -81,7 +81,7 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
     check_vector.insert(check_vector.end(), vector2.begin(), vector2.end());
     std::sort(check_vector.begin(), check_vector.end());
 
-    std::vector<int> result = 
+    std::vector<int> result =
         EvenOddBetcher::EvenOddBetcher_merge(vector1, vector2);
 
     EXPECT_EQ(result, check_vector);
