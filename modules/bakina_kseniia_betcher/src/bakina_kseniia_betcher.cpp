@@ -1,11 +1,9 @@
 // Copyright 2022 Bakina Kseniia
 
 #include "include/backina_kseniia_betcher.h"
-#include <climits>
-#include <ctime>
 
 std::vector<int> get_random_vector(int n) {
-	std::srand(std::time(0));
+    std::srand(std::time(0));
 	std::vector<int> vec;
 	vec.resize(n);
 	for (int i = 0; i < n; ++i) {
@@ -14,7 +12,7 @@ std::vector<int> get_random_vector(int n) {
 	return vec;
 }
 
-void residue_handling(int iter, std::vector<int>& vec, std::vector<int>& result) {
+void residue_handling(int iter, const std::vector<int>& vec, std::vector<int>& result) {
 	int vec_size = vec.size();
 	if (iter < vec_size) {
 		for (int k = iter; k < vec_size; k += 2) {
@@ -23,15 +21,15 @@ void residue_handling(int iter, std::vector<int>& vec, std::vector<int>& result)
 	}
 }
 
-void partial_merger(int iter_init, std::vector<int>& vec1, std::vector<int>& vec2, std::vector<int>& res, bool comparator(int, int)) {
+void partial_merger(int iter_init, const std::vector<int>& vec1, const std::vector<int>& vec2,
+	std::vector<int>& res, bool comparator(int, int)) {
 	int iter1 = iter_init, iter2 = iter_init;
 	int vec1_size = vec1.size(), vec2_size = vec2.size();
 	while (iter1 < vec1_size && iter2 < vec2_size) {
 		if (comparator(vec1[iter1], vec2[iter2])) {
 			res.push_back(vec1[iter1]);
 			iter1 += 2;
-		}
-		else {
+		} else {
 			res.push_back(vec2[iter2]);
 			iter2 += 2;
 		}
@@ -40,7 +38,8 @@ void partial_merger(int iter_init, std::vector<int>& vec1, std::vector<int>& vec
 	residue_handling(iter2, vec2, res);
 }
 
-std::vector<int> EvenOddBetcher_merge(std::vector<int>& vec1, std::vector<int>& vec2, bool comparator(int, int)) {
+std::vector<int> EvenOddBetcher_merge(const std::vector<int>& vec1, const std::vector<int>& vec2,
+	bool comparator(int, int)) {
 	std::vector<int> odd_vec;
 	std::vector<int> even_vec;
 	partial_merger(0, vec1, vec2, even_vec, comparator);
@@ -58,8 +57,7 @@ std::vector<int> EvenOddBetcher_merge(std::vector<int>& vec1, std::vector<int>& 
 		if (comparator(even_vec[res_it1], odd_vec[res_it2])) {
 			result.push_back(even_vec[res_it1]);
 			result.push_back(odd_vec[res_it2]);
-		}
-		else {
+	    } else {
 			result.push_back(odd_vec[res_it2]);
 			result.push_back(even_vec[res_it1]);
 		}

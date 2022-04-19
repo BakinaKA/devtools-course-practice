@@ -22,7 +22,7 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest, check_func_residue_handling) {
 	std::vector<int> check_vector1 = { 1, 3, 5, 7, 9 };
 	std::vector<int> check_vector2 = { 2, 4, 6, 8, 10 };
 	std::vector<int> result1;
-	std::vector<int> result2;
+    std::vector<int> result2;
 
 	residue_handling(0, vector, result1);
 	residue_handling(1, vector, result2);
