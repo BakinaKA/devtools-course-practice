@@ -2,8 +2,8 @@
 
 #include "include/backina_kseniia_betcher.h"
 
-#include <ctime>
 #include <vector>
+#include <ctime>
 
 std::vector<int> get_random_vector(int n) {
     std::srand(std::time(0));
