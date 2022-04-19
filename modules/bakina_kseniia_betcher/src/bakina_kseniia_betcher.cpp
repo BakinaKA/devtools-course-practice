@@ -2,6 +2,7 @@
 
 #include "include/backina_kseniia_betcher.h"
 
+#include <ctime>
 #include <vector>
 
 std::vector<int> get_random_vector(int n) {
