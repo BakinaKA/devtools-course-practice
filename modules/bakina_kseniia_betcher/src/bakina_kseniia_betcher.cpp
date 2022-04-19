@@ -2,8 +2,6 @@
 
 #include "include/backina_kseniia_betcher.h"
 
-#include <vector>
-
 std::vector<int> get_random_vector(int n) {
     std::srand(std::time(0));
     std::vector<int> vec;
@@ -24,7 +22,7 @@ void residue_handling(int iter, const std::vector<int>& vec,
     }
 }
 
-void partial_merger(int iter_init, const std::vector<int>& vec1, 
+void partial_merger(int iter_init, const std::vector<int>& vec1,
     const std::vector<int>& vec2, std::vector<int>* res,
     bool comparator(int, int)) {
     int iter1 = iter_init, iter2 = iter_init;
