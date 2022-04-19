@@ -88,12 +88,12 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
     check_func_EvenOddBetcher_merge_with_custom_comparator) {
     std::vector<int> vector1 = EvenOddBetcher::get_random_vector(100);
     std::vector<int> vector2 = EvenOddBetcher::get_random_vector(150);
-    std::sort(vector1.begin(), vector1.end(), std::greater<>());
-    std::sort(vector2.begin(), vector2.end(), std::greater<>());
+    std::sort(vector1.begin(), vector1.end(), std::greater<int>());
+    std::sort(vector2.begin(), vector2.end(), std::greater<int>());
 
     std::vector<int> check_vector(vector1);
     check_vector.insert(check_vector.end(), vector2.begin(), vector2.end());
-    std::sort(check_vector.begin(), check_vector.end(), std::greater<>());
+    std::sort(check_vector.begin(), check_vector.end(), std::greater<int>());
 
     auto custom_comparator_greater = [](int a, int b) { return a > b; };
     std::vector<int> result = EvenOddBetcher::EvenOddBetcher_merge(vector1, vector2,
