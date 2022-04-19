@@ -6,11 +6,11 @@
 #include "include/backina_kseniia_betcher.h"
 
 std::vector<int> EvenOddBetcher::get_random_vector(int n) {
-    std::srand(std::time(0));
+    srand(std::time(0));
     std::vector<int> vec;
     vec.resize(n);
     for (int i = 0; i < n; ++i) {
-        vec[i] = std::rand() * ((std::rand() % 2 == 0) ? -1 : 1);
+        vec[i] = rand() * ((rand() % 2 == 0) ? -1 : 1);
     }
     return vec;
 }
