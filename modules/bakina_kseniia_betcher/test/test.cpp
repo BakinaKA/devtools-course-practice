@@ -15,7 +15,7 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest, check_default_comparator) {
 TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
     check_func_get_random_vector) {
     int n = 10;
-    std::vector<int> vector = get_random_vector(n);
+    std::vector<int> vector = EvenOddBetcher::get_random_vector(n);
     EXPECT_EQ(vector.size(), n);
     EXPECT_FALSE(vector.empty());
 }
@@ -28,8 +28,8 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
     std::vector<int> result1;
     std::vector<int> result2;
 
-    residue_handling(0, vector, &result1);
-    residue_handling(1, vector, &result2);
+    EvenOddBetcher::residue_handling(0, vector, &result1);
+    EvenOddBetcher::residue_handling(1, vector, &result2);
 
     EXPECT_EQ(result1, check_vector1);
     EXPECT_EQ(result2, check_vector2);
@@ -44,8 +44,8 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
     std::vector<int> result1;
     std::vector<int> result2;
 
-    partial_merger(0, vector1, vector2, &result1);
-    partial_merger(1, vector1, vector2, &result2);
+    EvenOddBetcher::partial_merger(0, vector1, vector2, &result1);
+    EvenOddBetcher::partial_merger(1, vector1, vector2, &result2);
 
     EXPECT_EQ(result1, check_vector1);
     EXPECT_EQ(result2, check_vector2);
@@ -61,8 +61,8 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
     std::vector<int> result2;
 
     auto custom_comparator_greater = [](int a, int b) { return a > b; };
-    partial_merger(0, vector1, vector2, &result1, custom_comparator_greater);
-    partial_merger(1, vector1, vector2, &result2, custom_comparator_greater);
+    EvenOddBetcher::partial_merger(0, vector1, vector2, &result1, custom_comparator_greater);
+    EvenOddBetcher::partial_merger(1, vector1, vector2, &result2, custom_comparator_greater);
 
     EXPECT_EQ(result1, check_vector1);
     EXPECT_EQ(result2, check_vector2);
@@ -70,8 +70,8 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
 
 TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
     check_func_EvenOddBetcher_merge_with_default_comparator) {
-    std::vector<int> vector1 = get_random_vector(100);
-    std::vector<int> vector2 = get_random_vector(150);
+    std::vector<int> vector1 = EvenOddBetcher::get_random_vector(100);
+    std::vector<int> vector2 = EvenOddBetcher::get_random_vector(150);
     std::sort(vector1.begin(), vector1.end());
     std::sort(vector2.begin(), vector2.end());
 
@@ -79,15 +79,15 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
     check_vector.insert(check_vector.end(), vector2.begin(), vector2.end());
     std::sort(check_vector.begin(), check_vector.end());
 
-    std::vector<int> result = EvenOddBetcher_merge(vector1, vector2);
+    std::vector<int> result = EvenOddBetcher::EvenOddBetcher_merge(vector1, vector2);
 
     EXPECT_EQ(result, check_vector);
 }
 
 TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
     check_func_EvenOddBetcher_merge_with_custom_comparator) {
-    std::vector<int> vector1 = get_random_vector(100);
-    std::vector<int> vector2 = get_random_vector(150);
+    std::vector<int> vector1 = EvenOddBetcher::get_random_vector(100);
+    std::vector<int> vector2 = EvenOddBetcher::get_random_vector(150);
     std::sort(vector1.begin(), vector1.end(), std::greater<>());
     std::sort(vector2.begin(), vector2.end(), std::greater<>());
 
@@ -96,7 +96,7 @@ TEST(Bakina_Kseniia_OddEvenBetcherConfluenceTest,
     std::sort(check_vector.begin(), check_vector.end(), std::greater<>());
 
     auto custom_comparator_greater = [](int a, int b) { return a > b; };
-    std::vector<int> result = EvenOddBetcher_merge(vector1, vector2,
+    std::vector<int> result = EvenOddBetcher::EvenOddBetcher_merge(vector1, vector2,
         custom_comparator_greater);
 
     EXPECT_EQ(result, check_vector);

@@ -5,7 +5,7 @@
 
 #include "include/backina_kseniia_betcher.h"
 
-std::vector<int> get_random_vector(int n) {
+std::vector<int> EvenOddBetcher::get_random_vector(int n) {
     std::srand(std::time(0));
     std::vector<int> vec;
     vec.resize(n);
@@ -15,7 +15,7 @@ std::vector<int> get_random_vector(int n) {
     return vec;
 }
 
-void residue_handling(int iter, const std::vector<int>& vec,
+void EvenOddBetcher::residue_handling(int iter, const std::vector<int>& vec,
     std::vector<int>* result) {
     int vec_size = vec.size();
     if (iter < vec_size) {
@@ -25,7 +25,7 @@ void residue_handling(int iter, const std::vector<int>& vec,
     }
 }
 
-void partial_merger(int iter_init, const std::vector<int>& vec1,
+void EvenOddBetcher::partial_merger(int iter_init, const std::vector<int>& vec1,
     const std::vector<int>& vec2, std::vector<int>* res,
     bool comparator(int, int)) {
     int iter1 = iter_init, iter2 = iter_init;
@@ -43,7 +43,7 @@ void partial_merger(int iter_init, const std::vector<int>& vec1,
     residue_handling(iter2, vec2, res);
 }
 
-std::vector<int> EvenOddBetcher_merge(const std::vector<int>& vec1,
+std::vector<int> EvenOddBetcher::EvenOddBetcher_merge(const std::vector<int>& vec1,
     const std::vector<int>& vec2, bool comparator(int, int)) {
     std::vector<int> odd_vec;
     std::vector<int> even_vec;
