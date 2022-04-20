@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2022 Bakina Kseniia
 
 #include <gtest/gtest.h>
 
