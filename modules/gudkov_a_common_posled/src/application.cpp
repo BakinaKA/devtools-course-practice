@@ -1,6 +1,7 @@
 // Copyright 2022 Bakina Kseniia
 
 #include "include/application.h"
+#include <string>
 #include <vector>
 #include <cstdlib>
 #include <cstdio>
@@ -11,8 +12,8 @@ std::string Application::operator()(int argc, const char** argv) {
         return help();
     }
     if (!is_correct_data(argc, argv)) {
-        return "Given array must contain two sub-arrays \
-with printable characters only.";
+        return "Given array must contain two sub-arrays "
+            "with printable characters only.";
     }
 
     std::vector<std::string> input(2);
@@ -38,6 +39,6 @@ bool Application::is_correct_data(int argc, const char** argv) {
     return true;
 }
 std::string Application::help() {
-    return "The application searches for the \
-greatest common subsequence of two given arrays.";
+    return "The application searches for the "
+        "greatest common subsequence of two given arrays.";
 }
